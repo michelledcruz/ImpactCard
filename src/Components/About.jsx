@@ -1,9 +1,20 @@
+import Logo from "../assets/ocean-logo.png";
 import ocean from "../assets/waves.jpg";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
     <div className="w-max max-w-screen-sm h-full  overflow-hidden border-8 border-sea-blue rounded-[30px]">
-      <img className="w-full h-96 object-cover " src={ocean} />
+      <div className="relative">
+        <img className="w-full h-96 object-cover " src={ocean} />
+        <Link to="/">
+          <img
+            className="w-32 h-32 rounded-full border-4 border-white absolute top-4 left-4"
+            src={Logo}
+            alt="Logo"
+          />
+        </Link>
+      </div>
       <div className="p-6 font-poppins bg-ocean-blue">
         <h2 className="text-3xl font-bold  text-white mb-6 ">
           Ocean Cleanup: Join the cleanup
