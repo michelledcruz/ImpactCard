@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import RewardsIcon from "../assets/rewards.svg";
 import Logo from "../assets/ocean-logo.png";
+import badge from "../assets/badge.svg";
+import offer from "../assets/offer.svg";
 
 const ImpactCard = ({ title, description, imageUrl, gridItems }) => {
   return (
     <div className="w-max max-w-screen-sm h-full bg-gradient-to-t from-ocean-blue to-sea-blue shadow-lg  overflow-hidden border-8 border-sea-blue rounded-[30px]">
       <div className="relative">
         <img
-          className="w-full h-96 object-cover  bg-gradient-to-tl ocean-blue opacity-80"
+          className="w-full h-72 object-cover  bg-gradient-to-tl ocean-blue opacity-80"
           src={imageUrl}
           alt={title}
         />
@@ -46,6 +48,16 @@ const ImpactCard = ({ title, description, imageUrl, gridItems }) => {
         <Link to="/rewards">
           <button className="p-2 bg-sea-blue text-white rounded-md hover:bg-white transition duration-300 circular-button">
             <img src={RewardsIcon} alt="Button Icon" className="w-10 h-10" />
+          </button>
+        </Link>
+        <Link to="/authenticity">
+          <button className="p-2 bg-sea-blue text-white rounded-md hover:bg-white transition duration-300 circular-button">
+            <img src={badge} alt="Button Icon" className="w-10 h-10" />
+          </button>
+        </Link>
+        <Link to="/about">
+          <button className="p-2 bg-sea-blue text-white rounded-md hover:bg-white transition duration-300 circular-button">
+            <img src={offer} alt="Button Icon" className="w-10 h-10" />
           </button>
         </Link>
       </div>
