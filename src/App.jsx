@@ -4,10 +4,14 @@ import oceanCleanupImg from "./assets/ocean.jpg";
 import seaIcon from "./assets/sea.svg";
 import fishIcon from "./assets/fish-2.svg";
 import plasticBag from "./assets/plastic.svg";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import About from "./Components/About.JSX";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import About from "./Components/About";
 import Rewards from "./Components/Rewards";
 import Authenticity from "./Components/Authenticity";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 
 function App() {
   const gridItems = [
@@ -25,14 +29,44 @@ function App() {
         <Route
           path="/"
           element={
-            <ImpactCard
-              title="The Ocean Clean Up"
-              description="We develop and scale technologies to rid the oceans of plastic."
-              imageUrl={oceanCleanupImg}
-              gridItems={gridItems}
-            />
+            <div className="swiper-container">
+              <Swiper
+                spaceBetween={50}
+                slidesPerView={1}
+                pagination={{ clickable: true }}
+                navigation={{
+                  prevEl: ".custom-prev",
+                  nextEl: ".custom-next",
+                }}
+                modules={[Navigation]}
+              >
+                <SwiperSlide>
+                  <ImpactCard
+                    title="The Ocean Clean Up"
+                    description="We develop and scale technologies to rid the oceans of plastic."
+                    imageUrl={oceanCleanupImg}
+                    gridItems={gridItems}
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <About />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Rewards />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Authenticity />
+                </SwiperSlide>
+              </Swiper>
+
+              <div className="custom-navigation">
+                <button className="custom-prev">← Previous</button>
+                <button className="custom-next">Next →</button>
+              </div>
+            </div>
           }
         />
+
         <Route path="/about" element={<About />} />
         <Route path="/rewards" element={<Rewards />} />
         <Route path="/authenticity" element={<Authenticity />} />
